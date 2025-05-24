@@ -1,16 +1,30 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+config.scrollback_lines = 5000
+
+-- Mouse Bindings
+config.mouse_bindings = {
+	-- Ctrl-click will open the link under the mouse cursor
+	{
+		event = { Up = { streak = 1, button = "Left" } },
+		mods = "CTRL",
+		action = wezterm.action.OpenLinkAtMouseCursor,
+	},
+}
+-- Micellaneous Settings
+config.prefer_egl = true
+
 -- Font settings
 config.font_size = 18
 config.line_height = 1.1
 config.font = wezterm.font("MesloLGM Nerd Font", { weight = "Regular", stretch = "Normal", style = "Normal" })
+
 -- Colors
 config.colors = {
 	cursor_bg = "white",
 	cursor_border = "white",
 }
-config.scrollback_lines = 5000
 
 -- wezterm.gui is not available to the mux server, so take care to
 -- do something reasonable when this config is evaluated by the mux
@@ -89,12 +103,10 @@ config.window_padding = {
 }
 config.hide_tab_bar_if_only_one_tab = true
 
--- Micellaneous Settings
-config.prefer_egl = true
+-- config.background = background_for_appearance(get_appearance())
+-- config.color_scheme = scheme_for_appearance(get_appearance())
 
 config.background = background_for_appearance("Dark")
 config.color_scheme = scheme_for_appearance("Dark")
 
--- config.background = background_for_appearance(get_appearance())
--- config.color_scheme = scheme_for_appearance(get_appearance())
 return config

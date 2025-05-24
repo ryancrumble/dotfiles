@@ -5,6 +5,10 @@
 add_newline = false
 
 palette="catppuccin_mocha"
+# A minimal left prompt
+format = """$directory$character"""
+# move the rest of the prompt to the right
+right_format = """$all"""
 
 [character]
 # Note the use of Catppuccin color 'peach'
@@ -25,9 +29,10 @@ format = 'via [🎁 $version](208 bold) '
 [git_branch]
 symbol = '🌱 '
 style = "bold mauve"
-truncation_length = 24
+truncation_length = 64
 truncation_symbol = ''
-ignore_branches = ['master', 'main']
+# ignore_branches = ['master', 'main']
+# format =  '[$symbol$branch(:$remote_branch)]($style)'
 
 [git_commit]
 commit_hash_length = 4
