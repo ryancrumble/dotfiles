@@ -1,5 +1,6 @@
 # Aliases
 alias vim="nvim"
+alias lg='lazygit'
 
 # Fast Node Manager installed via homebrew
 eval "$(fnm env --use-on-cd --shell zsh)"
